@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kid Signup</title>
+    <script src="../js/validation-kid.js" defer></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/kid-signup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact</h1>
+        <form action="../php/process-kid-signup.php" method="post" id="signup" novalidate>
+            <div class="form-group">
+                <label for="ime">Ime</label>
+                <input type="text" id="ime" name="ime">
+            </div>
+
+            <div class="form-group">
+                <label for="prezime">Prezime</label>
+                <input type="text" id="prezime" name="prezime">
+            </div>
+
+            <div class="form-group">
+                <label for="adresa">Adresa</label>
+                <input type="text" id="adresa" name="adresa">
+            </div>
+            
+            <div class="form-group">
+                <label for="poruka">Poruka</label>
+                <textarea id="poruka" name="poruka"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Mjesec upisa</label>
+                <select id="priority" name="priority">
+                    <option value="1">Lipanj</option>
+                    <option value="2" selected>Rujan</option>
+                    <option value="3">Siječanj</option>
+                </select>
+            </div>
+
+            <fieldset class="form-group">
+                <legend>Program</legend>
+                <label class="radio-label">
+                    <input type="radio" name="type" value="1" checked>
+                    Pola dana
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="type" value="2">
+                    Cijeli dan
+                </label>
+            </fieldset>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="terms">
+                    Prihvaćam uvjete
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button>Pošalji</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

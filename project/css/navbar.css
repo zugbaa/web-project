@@ -1,0 +1,27 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Off-canvas initially */
+    width: 250px; /* Adjust as needed */
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it's on top of other content */
+  }
+  
+  #navbar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #navbar li {
+    margin-bottom: 10px;
+  }
+  
+  #navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  

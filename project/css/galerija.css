@@ -1,0 +1,453 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'funFont';
+}
+
+@font-face {
+    font-family: 'funFont';
+    src: url('../font/Kidtype.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
+body {
+    width: 100%;
+    position: relative;
+    overflow:scroll
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 242, 204, 0.90); /* Here, 0.7 sets the opacity to 70% */
+    z-index: -1; /* Ensure the overlay is behind the content */
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/naslovna.jpg);
+    z-index: -2; /* Place the background image even further behind */
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.loginInfo {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    line-height: 40px; /* Adjust this value as needed to align with the bottom */
+}
+
+a:hover{
+    color: blue;
+}
+
+.title{
+    font-weight: bold;
+    padding-top: 20px;
+    font-size: 40px;
+    font-family: 'funFont';
+}
+header {
+    background-color: rgba(219, 206, 166, 0.9);
+    height: 75px;
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Stick it to the top of the viewport */
+    z-index: 10000; /* Ensure it's on top of other elements */
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 40px;
+    box-shadow: 0px 5px 15px rgba(192, 181, 148, 1); /* Add a box shadow at the bottom */
+}
+.logo{
+    padding-top: 20px;
+}
+.logo-image {
+    height: 50px;
+    width: auto;
+    vertical-align: middle;
+    border-radius: 10%; /* Add border-radius for rounded edges */
+    transition: transform 0.2s ease; /* Add transition for smooth scaling */
+}
+
+.logo-image:hover {
+    transform: scale(1.1); /* Add a scale transform on hover to make it pop out */
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size:  1.5rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.navbar .links{
+    margin-top: 30px;
+    display: flex;
+    gap: 2rem;
+
+}
+.links a{
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.links a:hover{
+    color: #ff9900;
+}
+
+.navbar .togggle_btn{
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn1{
+    background-color: blue;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn1:hover{
+    scale:  1.05;
+    color: white;
+}
+
+.action_btn1:active{
+    scale: 0.95;
+}
+
+.action_btn2{
+    background-color: orange;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn2:hover{
+    scale:  1.05;
+    color: white;
+}
+
+.action_btn2:active{
+    scale: 0.95;
+}
+
+.action_btn3{
+    background-color: red;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn3:hover{
+    scale:  1.05;
+    color: white;
+}
+
+.action_btn3:active{
+    scale: 0.95;
+}
+
+.dropdown_menu{
+    position: absolute;
+    right: 2rem;
+    top: 80px;
+    width: 300px;
+    height: 0;
+    background: rgb(255, 255,  255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.dropdown_menu.open{
+    height: 500px;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn1 .action_btn2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the entire footer */
+footer {
+    background-color: rgba(219, 206, 166, 0.9);
+}
+
+/* Center the footer content horizontally */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-media {
+    display: flex; /* Set display to flex to make child elements inline */
+    flex-wrap: wrap; /* Wrap child elements to next line if they don't fit */
+    justify-content: space-between; /* Distribute child elements evenly */
+    align-items: flex-start; /* Align child elements at the top */
+}
+
+/* Style the social media links */
+.footer-social p {
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.footer-social a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/* Style the footer logo */
+.footer-logo img {
+    width: 95px;
+    height: auto;
+    padding-top: 10px;
+}
+
+.footer-contact{
+    padding-top: 10px;
+}
+
+/* Style the contact information */
+.footer-contact p {
+    margin-bottom: 5px;
+    padding-right: 10px;
+
+}
+
+.squiggly-underline::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #000; /* Change this to your desired underline color */
+    margin-top: 4px; /* Adjust this to control the distance between text and underline */
+    border-radius: 5px; /* Adjust this to control the "squiggliness" */
+    width: 50px; /* Adjust this to control the width of the squiggly line */
+    position: relative;
+    animation: squiggle 0.5s infinite alternate; /* Animation for the squiggly effect */
+}
+
+@keyframes squiggle {
+    to {
+        transform: translateX(5px); /* Adjust this value to control the squiggle's movement */
+    }
+}
+
+.squiggly a::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #000; /* Change this to your desired underline color */
+    margin-top: 4px; /* Adjust this to control the distance between text and underline */
+    border-radius: 5px; /* Adjust this to control the "squiggliness" */
+    width: 50px; /* Adjust this to control the width of the squiggly line */
+    position: relative;
+    animation: squiggle 0.5s infinite alternate; /* Animation for the squiggly effect */
+}
+
+@keyframes squiggle {
+    to {
+        transform: translateX(5px); /* Adjust this value to control the squiggle's movement */
+    }
+}
+/* Style the album headers */
+.album-header {
+    font-family: funFont;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(219, 206, 166, 0.9);
+    color: black;
+    text-align: center;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.album-header:hover {
+    background-color: #964B00;
+}
+
+/* Style the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Style the modal content */
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 800px;
+    background-color: brown;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Style the album images */
+.album-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Close button for the modal */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: black;
+}
+
+/* Style for album previews */
+.album-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.album-preview-image {
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.album-preview-image:hover {
+    opacity: 0.7;
+}
+
+
+
+
+@media(max-width: 1050px){
+    .title {
+        font-size: 40px; 
+    }
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+    .navbar .links,
+    .navbar .action_btn1 .action_btn2{
+        display: none;
+    }
+
+    .navbar .togggle_btn{
+        display: block;
+    }
+}
+
+@media(max-width: 768px){
+    header{
+        height: 12vh;
+    }
+    .logo-image {
+        height: 38px; /* 10% smaller than the default (40px) */
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        margin-bottom: 20px;
+    }
+
+    .footer-media {
+        align-items: center;
+    }
+
+    .footer-social a {
+        font-size: 24px;
+    }
+    .footer-media {
+        padding-top: 5px;
+    }
+}
+
+
+@media(max-height: 475px){
+    header{
+        height: 70px;
+    }
+}
